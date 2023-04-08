@@ -18,7 +18,7 @@ class TestLogin:
         driver.find_element(*Login.SIGN_IN_BTN).click()
         webdriver_wait(driver, Home.PROFILE_BTN)
         check = driver.find_element(*Home.PROFILE_BTN).text
-        assert check == 'Личный Кабинет'
+        assert 'Личный Кабинет' == check
 
     def test_login_from_profile_btn(self, driver):
         driver.get(SITE_URL)

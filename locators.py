@@ -36,6 +36,12 @@ class Registration:
     SIGN_IN_LINK = (By.XPATH, "//a[text()='Войти']")  # ссылка Войти
 
 
+class Profile:
+    SIGN_IN_BTN = (By.CLASS_NAME, "Account_text__fZAIn text text_type_main-default")
+    CONSTRUCTOR_BTN = (By.XPATH, "//p[text()='Конструктор']")  # кнопка для перехода в Конструктор
+    LOGOUT_BTN = (By.CLASS_NAME, "Account_button__14Yp3 text text_type_main-medium text_color_inactive")  # кнопка для выхода из аккаунта
+
+
 
 
 

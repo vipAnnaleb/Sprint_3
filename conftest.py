@@ -1,13 +1,8 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
 
-
-from locators import (Home,
-                      Login)
 
 SITE_URL = "https://stellarburgers.nomoreparties.site/"
 
@@ -26,14 +21,13 @@ def webdriver_wait(driver_use, locator):  # Время ожидания веб-�
     WebDriverWait(driver_use, WAIT_TIME).until(expected_conditions.visibility_of_element_located(locator))
 
 
-@pytest.fixture()
+@pytest.fixture(scope='function')
 def driver():  # Запуск и оставновка веб-драйвера
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(executable_path='.\\chromedriver.exe')
     driver.maximize_window()
     driver.get(SITE_URL)
     yield driver
     driver.quit()
-
 
 
 
